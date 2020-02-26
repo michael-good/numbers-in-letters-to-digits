@@ -103,6 +103,37 @@ public class TestMainApp extends TestCase {
                 testOut.toString());
     }
 
+    @Test
+    public void invalidNullInputShouldRaiseException() throws Exception {
+        String testString = "\n";
+        ByteArrayInputStream testIn = new ByteArrayInputStream(testString.getBytes());
+        System.setIn(testIn);
+
+        ByteArrayOutputStream testOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(testOut));
+
+        this.app.main(new String[0]);;
+
+        Assertions.assertEquals("Enter a phrase or text: \nInvalid input string!\n",
+                testOut.toString());
+    }
+
+    @Test
+    public void inputNumberOutOfBoundsShouldRaiseExceptionOutOfRange() throws Exception {
+        String testString = "two billion one hundred forty seven million four hundred " +
+                "eighty three thousand six hundred forty eight";
+        ByteArrayInputStream testIn = new ByteArrayInputStream(testString.getBytes());
+        System.setIn(testIn);
+
+        ByteArrayOutputStream testOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(testOut));
+
+        this.app.main(new String[0]);;
+
+        Assertions.assertEquals("Enter a phrase or text: \nInput number out of range!\n",
+                testOut.toString());
+    }
+
     public static TestSuite suite() {
         TestSuite suite = new TestSuite();
         suite.addTest(new TestMainApp("checkIfZeroIsProperlyTransformed"));
@@ -111,6 +142,8 @@ public class TestMainApp extends TestCase {
         suite.addTest(new TestMainApp("checkIfSentenceWithMultipleNumbersIsProperlyTransformed"));
         suite.addTest(new TestMainApp("checkIfSentenceWithMultipleNumbersIsProperlyTransformed"));
         suite.addTest(new TestMainApp("sentenceWithNoNumbersShouldOutputSameSentence"));
+        suite.addTest(new TestMainApp("invalidNullInputShouldRaiseException"));
+        suite.addTest(new TestMainApp("inputNumberOutOfBoundsShouldRaiseExceptionOutOfRange"));
 
         return suite;
     }

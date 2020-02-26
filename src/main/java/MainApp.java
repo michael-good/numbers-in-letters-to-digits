@@ -33,7 +33,7 @@ public class MainApp {
             this.replaceNumbersInWordsInTextByDigits();
             this.printResult();
         } catch(Exception ex) {
-            System.err.println(ex.getMessage());
+            System.out.println(ex.getMessage());
         }
     }
 
