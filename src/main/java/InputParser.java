@@ -15,7 +15,7 @@ public class InputParser {
 
     public void parseText(String text) throws Exception {
         this.text = text;
-        if(!isValidInput())
+        if (!isValidInput())
             throw new Exception("Invalid input string!");
         tokenizeText();
         getNumberWordsFromText();
@@ -36,13 +36,13 @@ public class InputParser {
             if (isTokenANumber(token)) {
                 this.numbers.add(token);
             } else {
-                if(isSeparatorNeededBecauseOfEndOfNumber(index)) {
+                if (isSeparatorNeededBecauseOfEndOfNumber(index)) {
                     this.numbers.add("separator");
                 }
             }
             index++;
         }
-        if(!isThereSeparatorAtTheEndAlready())
+        if (!isThereSeparatorAtTheEndAlready())
             this.numbers.add("separator");
     }
 
@@ -53,12 +53,12 @@ public class InputParser {
 
     private boolean isSeparatorNeededBecauseOfEndOfNumber(int index) {
         return (index > 0 && !this.numbers.isEmpty() &&
-                tokenizedText[index-1].equalsIgnoreCase(this.numbers.get(this.numbers.size()-1)) &&
+                tokenizedText[index - 1].equalsIgnoreCase(this.numbers.get(this.numbers.size() - 1)) &&
                 !tokenizedText[index].equalsIgnoreCase("and"));
     }
 
     private boolean isThereSeparatorAtTheEndAlready() {
-        return this.numbers.get(this.numbers.size()-1).equalsIgnoreCase("separator");
+        return this.numbers.get(this.numbers.size() - 1).equalsIgnoreCase("separator");
     }
 
     public List<String> getNumbers() {
