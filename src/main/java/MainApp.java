@@ -5,47 +5,38 @@ import java.util.Scanner;
 
 public class MainApp {
 
-    public String text;
+    private String text;
+    private NumberInWordsToDigits converter;
+    private InputParser parser;
 
     public MainApp() {
-
-    }
-
-    public void getUserInput() {
-        System.out.println("Enter a phrase or text: ");
-        Scanner scanner = new Scanner(System.in);
-        this.text = scanner.nextLine();
-    }
-
-    public void parseTextAndGetNumbersFromIt() throws Exception {
-        NumberInWordsToDigits converter = new NumberInWordsToDigits();
-        InputParser parser = new InputParser(converter);
-        parser.parseText(this.text);
+        this.converter = new NumberInWordsToDigits();
+        this.parser = new InputParser(converter);
     }
 
     public static void main(String[] args) throws Exception {
-
         MainApp app = new MainApp();
-        app.getUserInput();
+        app.execute();
+    }
 
-        NumberInWordsToDigits conversor = new NumberInWordsToDigits();
-        InputParser parser = new InputParser(conversor);
-        parser.parseText(app.text);
+    public void execute() throws Exception {
+        this.getUserInput();
+        this.parseTextAndGetNumbersFromIt();
 
+        List<String> numbers = this.getParser().getNumbers();
         List<Integer> results = new ArrayList<Integer>();
-        List<String> numbers = parser.getNumbers();
         List<String> tempNumbers = new ArrayList<String>();
         List<Integer> firstIndexNumber = new ArrayList<Integer>();
         List<Integer> lastIndexNumber = new ArrayList<Integer>();
 
-        String[] tokenizedText = parser.getTokenizedText();
+        String[] tokenizedText = this.getParser().getTokenizedText();
         for(String number: numbers) {
             if(!number.equalsIgnoreCase("separator")) {
                 tempNumbers.add(number);
             } else {
-                results.add(conversor.convertWordNumbersToDigits(tempNumbers));
-                firstIndexNumber.add(app.text.indexOf(tempNumbers.get(0)));
-                lastIndexNumber.add(app.text.lastIndexOf(tempNumbers.get(tempNumbers.size()-1)) +
+                results.add(this.getConverter().convertWordNumbersToDigits(tempNumbers));
+                firstIndexNumber.add(this.getText().indexOf(tempNumbers.get(0)));
+                lastIndexNumber.add(this.getText().lastIndexOf(tempNumbers.get(tempNumbers.size()-1)) +
                         tempNumbers.get(tempNumbers.size()-1).length());
                 tempNumbers.clear();
             }
@@ -55,11 +46,37 @@ public class MainApp {
             int startIndex = firstIndexNumber.get(i - 1);
             int endIndex = lastIndexNumber.get(i-1);
             String replacement = Integer.toString(results.get(i-1));
-            String toBeReplaced = app.text.substring(startIndex, endIndex);
-            app.text = app.text.replace(toBeReplaced, replacement);
+            String toBeReplaced = this.getText().substring(startIndex, endIndex);
+            this.setText(this.getText().replace(toBeReplaced, replacement));
 
         }
-        System.out.println(app.text);
+        System.out.println(this.getText());
+    }
+
+    public void getUserInput() {
+        System.out.println("Enter a phrase or text: ");
+        Scanner scanner = new Scanner(System.in);
+        this.text = scanner.nextLine();
+    }
+
+    public void parseTextAndGetNumbersFromIt() throws Exception {
+        this.parser.parseText(this.text);
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public InputParser getParser() {
+        return this.parser;
+    }
+
+    public NumberInWordsToDigits getConverter() {
+        return this.converter;
     }
 }
 
