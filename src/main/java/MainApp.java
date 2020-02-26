@@ -26,11 +26,15 @@ public class MainApp {
 
     public void execute() throws Exception {
         this.getUserInput();
-        this.parseTextAndGetNumbersFromIt();
-        this.initializeNeededVariablesForConversionOperation();
-        this.convertAllNumbersInWordsFromTextToDigitsAndGetTheirLocationInText();
-        this.replaceNumbersInWordsInTextByDigits();
-        this.printResult();
+        try {
+            this.parseTextAndGetNumbersFromIt();
+            this.initializeNeededVariablesForConversionOperation();
+            this.convertAllNumbersInWordsFromTextToDigitsAndGetTheirLocationInText();
+            this.replaceNumbersInWordsInTextByDigits();
+            this.printResult();
+        } catch(Exception ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     private void getUserInput() {
