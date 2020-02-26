@@ -88,6 +88,21 @@ public class TestMainApp extends TestCase {
                 testOut.toString());
     }
 
+    @Test
+    public void sentenceWithNoNumbersShouldOutputSameSentence() throws Exception {
+        String testString = "My name is Miguel Ángel";
+        ByteArrayInputStream testIn = new ByteArrayInputStream(testString.getBytes());
+        System.setIn(testIn);
+
+        ByteArrayOutputStream testOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(testOut));
+
+        this.app.main(new String[0]);
+
+        Assertions.assertEquals("Enter a phrase or text: \nMy name is Miguel Ángel\n",
+                testOut.toString());
+    }
+
     public static TestSuite suite() {
         TestSuite suite = new TestSuite();
         suite.addTest(new TestMainApp("checkIfZeroIsProperlyTransformed"));
@@ -95,6 +110,7 @@ public class TestMainApp extends TestCase {
         suite.addTest(new TestMainApp("checkIfTestInputWithAndIsProperlyTransformed"));
         suite.addTest(new TestMainApp("checkIfSentenceWithMultipleNumbersIsProperlyTransformed"));
         suite.addTest(new TestMainApp("checkIfSentenceWithMultipleNumbersIsProperlyTransformed"));
+        suite.addTest(new TestMainApp("sentenceWithNoNumbersShouldOutputSameSentence"));
 
         return suite;
     }

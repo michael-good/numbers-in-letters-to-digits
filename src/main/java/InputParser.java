@@ -42,7 +42,7 @@ public class InputParser {
             }
             index++;
         }
-        if (!isThereSeparatorAtTheEndAlready())
+        if (this.numbers.size() != 0 && !isThereSeparatorAtTheEndAlready())
             this.numbers.add("separator");
     }
 
