@@ -30,8 +30,7 @@ public class MainApp {
         this.initializeNeededVariablesForConversionOperation();
         this.convertAllNumbersInWordsFromTextToDigitsAndGetTheirLocationInText();
         this.replaceNumbersInWordsInTextByDigits();
-
-        System.out.println(this.getText());
+        this.printResult();
     }
 
     private void getUserInput() {
@@ -74,6 +73,10 @@ public class MainApp {
             String toBeReplaced = this.getText().substring(startIndex, endIndex);
             this.setText(this.getText().replace(toBeReplaced, replacement));
         }
+    }
+
+    private void printResult() {
+        System.out.println(this.getText());
     }
 
     public String getText() {

@@ -13,43 +13,43 @@ public class NumberInWordsToDigits {
         this.numbers = new ArrayList<String>();
         this.allowedNumbersSum = new HashMap<String, Integer>();
         this.allowedNumbersProd = new HashMap<String, Integer>();
-        initializeGroundTruthNumberMaps();
+        this.initializeGroundTruthNumberMaps();
     }
 
     private void initializeGroundTruthNumberMaps() {
-        allowedNumbersSum.put("zero", 0);
-        allowedNumbersSum.put("one", 1);
-        allowedNumbersSum.put("two", 2);
-        allowedNumbersSum.put("three", 3);
-        allowedNumbersSum.put("four", 4);
-        allowedNumbersSum.put("five", 5);
-        allowedNumbersSum.put("six", 6);
-        allowedNumbersSum.put("seven", 7);
-        allowedNumbersSum.put("eight", 8);
-        allowedNumbersSum.put("nine", 9);
-        allowedNumbersSum.put("ten", 10);
-        allowedNumbersSum.put("eleven", 11);
-        allowedNumbersSum.put("twelve", 12);
-        allowedNumbersSum.put("thirteen", 13);
-        allowedNumbersSum.put("fourteen", 14);
-        allowedNumbersSum.put("fifteen", 15);
-        allowedNumbersSum.put("sixteen", 16);
-        allowedNumbersSum.put("seventeen", 17);
-        allowedNumbersSum.put("eighteen", 18);
-        allowedNumbersSum.put("nineteen", 19);
-        allowedNumbersSum.put("twenty", 20);
-        allowedNumbersSum.put("thirty", 30);
-        allowedNumbersSum.put("fourty", 40);
-        allowedNumbersSum.put("forty", 40);
-        allowedNumbersSum.put("fifty", 50);
-        allowedNumbersSum.put("sixty", 60);
-        allowedNumbersSum.put("seventy", 70);
-        allowedNumbersSum.put("eighty", 80);
-        allowedNumbersSum.put("ninety", 90);
-        allowedNumbersSum.put("hundred", 100);
-        allowedNumbersProd.put("thousand", 1000);
-        allowedNumbersProd.put("million", 1000000);
-        allowedNumbersProd.put("billion", 1000000000);
+        this.allowedNumbersSum.put("zero", 0);
+        this.allowedNumbersSum.put("one", 1);
+        this.allowedNumbersSum.put("two", 2);
+        this.allowedNumbersSum.put("three", 3);
+        this.allowedNumbersSum.put("four", 4);
+        this.allowedNumbersSum.put("five", 5);
+        this.allowedNumbersSum.put("six", 6);
+        this.allowedNumbersSum.put("seven", 7);
+        this.allowedNumbersSum.put("eight", 8);
+        this.allowedNumbersSum.put("nine", 9);
+        this.allowedNumbersSum.put("ten", 10);
+        this.allowedNumbersSum.put("eleven", 11);
+        this.allowedNumbersSum.put("twelve", 12);
+        this.allowedNumbersSum.put("thirteen", 13);
+        this.allowedNumbersSum.put("fourteen", 14);
+        this.allowedNumbersSum.put("fifteen", 15);
+        this.allowedNumbersSum.put("sixteen", 16);
+        this.allowedNumbersSum.put("seventeen", 17);
+        this.allowedNumbersSum.put("eighteen", 18);
+        this.allowedNumbersSum.put("nineteen", 19);
+        this.allowedNumbersSum.put("twenty", 20);
+        this.allowedNumbersSum.put("thirty", 30);
+        this.allowedNumbersSum.put("fourty", 40);
+        this.allowedNumbersSum.put("forty", 40);
+        this.allowedNumbersSum.put("fifty", 50);
+        this.allowedNumbersSum.put("sixty", 60);
+        this.allowedNumbersSum.put("seventy", 70);
+        this.allowedNumbersSum.put("eighty", 80);
+        this.allowedNumbersSum.put("ninety", 90);
+        this.allowedNumbersSum.put("hundred", 100);
+        this.allowedNumbersProd.put("thousand", 1000);
+        this.allowedNumbersProd.put("million", 1000000);
+        this.allowedNumbersProd.put("billion", 1000000000);
     }
 
     public HashMap<String, Integer> getAllowedNumbersSum() {

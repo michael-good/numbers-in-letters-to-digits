@@ -53,8 +53,8 @@ public class InputParser {
 
     private boolean isSeparatorNeededBecauseOfEndOfNumber(int index) {
         return (index > 0 && !this.numbers.isEmpty() &&
-                tokenizedText[index - 1].equalsIgnoreCase(this.numbers.get(this.numbers.size() - 1)) &&
-                !tokenizedText[index].equalsIgnoreCase("and"));
+                this.tokenizedText[index - 1].equalsIgnoreCase(this.numbers.get(this.numbers.size() - 1)) &&
+                !this.tokenizedText[index].equalsIgnoreCase("and"));
     }
 
     private boolean isThereSeparatorAtTheEndAlready() {
