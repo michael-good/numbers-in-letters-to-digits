@@ -47,3 +47,7 @@ foo@bar:~$ java -jar verbio-1.0-SNAPSHOT.jar
 
 ## MainApp class
 
+In the main method, a new application object is created. It then launches the program by calling execute(). This method gets a paragraph from user by means of Scanner. 
+Input text is parsed by InputParser, where tokenized text and numbers are extracted and stored into Lists. Such numbers in letters are then converted to digits.
+The idea is that when analyzing the sequences, InputParser looks for numbers and stores them sequentally. If there are separated numbers, a separator mark is appended at the array to indicate that there are more than one number stored. That way, convertAllNumbersInWordsFromTextToDigitsAndGetTheirLocationInText() in MainApp receives the whole array and only converts data in between separation marks separately. As a result, a vector with different digits is obtained and stored within "results" list. Positions of the beginning and end of the numbers in their letter form within original input text are also hold. This positions are used in replaceNumbersInWordsInTextByDigits() to replace all numbers in letters in the original text by their digit form by means of replace() and substring(). 
+When this last operation is completed, converted text is shown to the user.
