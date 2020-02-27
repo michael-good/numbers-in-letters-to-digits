@@ -8,6 +8,7 @@ For instance:
   - If the input is ‘I have one hundred apples’ the output should be ‘I have 100 apples’
   
 Test cases have been written so that 100% coverage is achieved. Binaries (JAR) for the execution of the program can be found within bin/ folder.
+Project has been compiled, built and tested using Gradle.
 
 ## Assumptions
 
