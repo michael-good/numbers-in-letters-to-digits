@@ -9,6 +9,12 @@ For instance:
   
 Test cases have been written so that 100% coverage is achieved. Binaries (JAR) for the execution of the program can be found within bin/ folder.
 
+## Assumptions
+
+1. Only quantities i.e. positive numbers are converted.
+2. There can be more than one number in a sentence/paragraph.
+3. Maximum value of numbers is 9,223,372,036,854,775,807 (64-bit variable limit).
+
 ## Requirements
 
 - JavaSE 8 (Java 1.8)
@@ -36,3 +42,8 @@ foo@bar:~$ java -jar verbio-1.0-SNAPSHOT.jar
 2. Extract such file and navigate to numbers-in-letters-to-digits\bin\
 3. Open a cmd command line.
 4. Type in the following and press Enter: java -jar verbio-1.0-SNAPSHOT.jar
+
+# Code explanation
+
+## MainApp class
+
