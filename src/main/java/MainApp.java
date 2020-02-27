@@ -9,7 +9,7 @@ public class MainApp {
     private NumberInWordsToDigits converter;
     private InputParser parser;
     List<String> numbers;
-    List<Integer> results;
+    List<Long> results;
     List<String> tempNumbers;
     List<Integer> firstIndexNumber;
     List<Integer> lastIndexNumber;
@@ -19,12 +19,12 @@ public class MainApp {
         this.parser = new InputParser(converter);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         MainApp app = new MainApp();
         app.execute();
     }
 
-    public void execute() throws Exception {
+    public void execute() {
         this.getUserInput();
         try {
             this.parseTextAndGetNumbersFromIt();
@@ -49,10 +49,10 @@ public class MainApp {
 
     private void initializeNeededVariablesForConversionOperation() {
         this.numbers = this.parser.getNumbers();
-        this.results = new ArrayList<Integer>();
-        this.tempNumbers = new ArrayList<String>();
-        this.firstIndexNumber = new ArrayList<Integer>();
-        this.lastIndexNumber = new ArrayList<Integer>();
+        this.results = new ArrayList<>();
+        this.tempNumbers = new ArrayList<>();
+        this.firstIndexNumber = new ArrayList<>();
+        this.lastIndexNumber = new ArrayList<>();
     }
 
     private void convertAllNumbersInWordsFromTextToDigitsAndGetTheirLocationInText() throws Exception {
@@ -73,7 +73,7 @@ public class MainApp {
         for (int i = this.firstIndexNumber.size(); i > 0; i--) {
             int startIndex = this.firstIndexNumber.get(i - 1);
             int endIndex = this.lastIndexNumber.get(i - 1);
-            String replacement = Integer.toString(this.results.get(i - 1));
+            String replacement = Long.toString(this.results.get(i - 1));
             String toBeReplaced = this.getText().substring(startIndex, endIndex);
             this.setText(this.getText().replace(toBeReplaced, replacement));
         }

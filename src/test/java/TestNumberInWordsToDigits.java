@@ -104,45 +104,69 @@ public class TestNumberInWordsToDigits extends TestCase {
     public void valueEqualToUpperLimitShouldBeValid() throws Exception {
         ArrayList<String> numbers = new ArrayList<String>();
 
+        numbers.add("nine");
+        numbers.add("quintillion");
         numbers.add("two");
-        numbers.add("billion");
-        numbers.add("one");
         numbers.add("hundred");
-        numbers.add("forty");
-        numbers.add("seven");
-        numbers.add("million");
-        numbers.add("four");
-        numbers.add("hundred");
-        numbers.add("eighty");
+        numbers.add("twenty");
         numbers.add("three");
-        numbers.add("thousand");
-        numbers.add("six");
+        numbers.add("quadrillion");
+        numbers.add("three");
         numbers.add("hundred");
-        numbers.add("forty");
+        numbers.add("seventy");
+        numbers.add("two");
+        numbers.add("trillion");
+        numbers.add("thirty");
+        numbers.add("six");
+        numbers.add("billion");
+        numbers.add("eight");
+        numbers.add("hundred");
+        numbers.add("fifty");
+        numbers.add("four");
+        numbers.add("million");
+        numbers.add("seven");
+        numbers.add("hundred");
+        numbers.add("seventy");
+        numbers.add("five");
+        numbers.add("thousand");
+        numbers.add("eight");
+        numbers.add("hundred");
         numbers.add("seven");
 
-        Assertions.assertEquals(converter.convertWordNumbersToDigits(numbers), 2147483647);
+        Assertions.assertEquals(converter.convertWordNumbersToDigits(numbers), 9223372036854775807L);
     }
 
     @Test
     public void valueGreaterThanEUpperLimitShouldNotBeValid() throws Exception {
         ArrayList<String> numbers = new ArrayList<String>();
 
+        numbers.add("nine");
+        numbers.add("quintillion");
         numbers.add("two");
-        numbers.add("billion");
-        numbers.add("one");
         numbers.add("hundred");
-        numbers.add("forty");
-        numbers.add("seven");
-        numbers.add("million");
-        numbers.add("four");
-        numbers.add("hundred");
-        numbers.add("eighty");
+        numbers.add("twenty");
         numbers.add("three");
-        numbers.add("thousand");
-        numbers.add("six");
+        numbers.add("quadrillion");
+        numbers.add("three");
         numbers.add("hundred");
-        numbers.add("forty");
+        numbers.add("seventy");
+        numbers.add("two");
+        numbers.add("trillion");
+        numbers.add("thirty");
+        numbers.add("six");
+        numbers.add("billion");
+        numbers.add("eight");
+        numbers.add("hundred");
+        numbers.add("fifty");
+        numbers.add("four");
+        numbers.add("million");
+        numbers.add("seven");
+        numbers.add("hundred");
+        numbers.add("seventy");
+        numbers.add("five");
+        numbers.add("thousand");
+        numbers.add("eight");
+        numbers.add("hundred");
         numbers.add("eight");
 
         Exception thrown = Assertions.assertThrows(Exception.class, () -> {

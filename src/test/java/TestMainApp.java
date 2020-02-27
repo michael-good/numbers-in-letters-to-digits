@@ -32,8 +32,9 @@ public class TestMainApp extends TestCase {
 
     @Test
     public void checkIfUpperLimitIsProperlyTransformed() throws Exception {
-        String testString = "two billion one hundred forty seven million four hundred " +
-                "eighty three thousand six hundred forty seven";
+        String testString = "nine quintillion two hundred twenty-three quadrillion " +
+                "three hundred seventy-two trillion thirty-six billion eight hundred " +
+                "fifty-four million seven hundred seventy-five thousand eight hundred seven";
         ByteArrayInputStream testIn = new ByteArrayInputStream(testString.getBytes());
         System.setIn(testIn);
 
@@ -42,7 +43,7 @@ public class TestMainApp extends TestCase {
 
         this.app.main(new String[0]);
 
-        Assertions.assertEquals("Enter a phrase or text: \n2147483647\n", testOut.toString());
+        Assertions.assertEquals("Enter a phrase or text: \n9223372036854775807\n", testOut.toString());
     }
 
     @Test
@@ -120,8 +121,9 @@ public class TestMainApp extends TestCase {
 
     @Test
     public void inputNumberOutOfBoundsShouldRaiseExceptionOutOfRange() throws Exception {
-        String testString = "two billion one hundred forty seven million four hundred " +
-                "eighty three thousand six hundred forty eight";
+        String testString = "nine quintillion two hundred twenty-three quadrillion " +
+                "three hundred seventy-two trillion thirty-six billion eight hundred " +
+                "fifty-four million seven hundred seventy-five thousand eight hundred eight";
         ByteArrayInputStream testIn = new ByteArrayInputStream(testString.getBytes());
         System.setIn(testIn);
 

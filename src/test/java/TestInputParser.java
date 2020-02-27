@@ -72,26 +72,39 @@ public class TestInputParser extends TestCase {
 
     @Test
     public void valueEqualToUpperLimitShouldBeStoredProperly() throws Exception {
-        String text = "two billion one hundred forty seven million " +
-                "four hundred eighty three thousand six hundred forty seven";
+        String text = "nine quintillion two hundred twenty-three quadrillion " +
+                "three hundred seventy-two trillion thirty-six billion eight hundred " +
+                "fifty-four million seven hundred seventy-five thousand eight hundred seven";
         ArrayList<String> numbers = new ArrayList<String>();
 
         parser.parseText(text);
+        numbers.add("nine");
+        numbers.add("quintillion");
         numbers.add("two");
-        numbers.add("billion");
-        numbers.add("one");
         numbers.add("hundred");
-        numbers.add("forty");
-        numbers.add("seven");
-        numbers.add("million");
-        numbers.add("four");
-        numbers.add("hundred");
-        numbers.add("eighty");
+        numbers.add("twenty");
         numbers.add("three");
-        numbers.add("thousand");
-        numbers.add("six");
+        numbers.add("quadrillion");
+        numbers.add("three");
         numbers.add("hundred");
-        numbers.add("forty");
+        numbers.add("seventy");
+        numbers.add("two");
+        numbers.add("trillion");
+        numbers.add("thirty");
+        numbers.add("six");
+        numbers.add("billion");
+        numbers.add("eight");
+        numbers.add("hundred");
+        numbers.add("fifty");
+        numbers.add("four");
+        numbers.add("million");
+        numbers.add("seven");
+        numbers.add("hundred");
+        numbers.add("seventy");
+        numbers.add("five");
+        numbers.add("thousand");
+        numbers.add("eight");
+        numbers.add("hundred");
         numbers.add("seven");
         numbers.add("separator");
 
